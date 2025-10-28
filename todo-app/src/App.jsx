@@ -34,16 +34,16 @@ function App() {
       )
     );
   };
-              const filteredTodos = todos.filter((a) => {
-                  if (filter === "active") return !a.completed;
-                  if (filter === "completed") return a.completed;
-                  return true;
-                  });
-              const filters = [
-                  { key: "all", label: "Все" },
-                  { key: "active", label: "Активные" },
-                  { key: "completed", label: "Завершенные" },
-                  ];
+  const filteredTodos = todos.filter((a) => {
+    if (filter === "active") return !a.completed;
+    if (filter === "completed") return a.completed;
+    return true;
+  });
+  const filters = [
+    { key: "all", label: "Все" },
+    { key: "active", label: "Активные" },
+    { key: "completed", label: "Завершенные" },
+  ];
   return (
     <div className="container">
       <div className="header">
@@ -51,15 +51,15 @@ function App() {
         <p>Управляйте своими задачами</p>
       </div>
       <div className="add-todo">
-      <form onSubmit={addTodo}>
-        <input
-          type="text"
-          className="todo-input"
-          placeholder="Введите задачу..."
-          value={todoName}
-          onChange={(e) => setTodoName(e.target.value)}/>
-        <button className="add-btn">Добавить</button>
-      </form>
+        <form onSubmit={addTodo}>
+          <input
+            type="text"
+            className="todo-input"
+            placeholder="Введите задачу..."
+            value={todoName}
+            onChange={(e) => setTodoName(e.target.value)} />
+          <button className="add-btn">Добавить</button>
+        </form>
       </div>
       <div className="filters">
         {filters.map((e) => (
@@ -72,7 +72,7 @@ function App() {
       </div>
       <div className="todo-list">
         {filteredTodos.map((item) => (
-          <Todo key={item.id} title={item.title} completed={item.completed} onDelete={() => removeTodo(item.id)} onToggle={() => toggleTodo(item.id)}/>
+          <Todo key={item.id} title={item.title} completed={item.completed} onDelete={() => removeTodo(item.id)} onToggle={() => toggleTodo(item.id)} />
         ))}
       </div>
       <div className="stats">
